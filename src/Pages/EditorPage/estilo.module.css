@@ -1,0 +1,19 @@
+.mainContainer {
+  /* width: 70vw;
+  justify-self: center; */
+  padding: 1em;
+}
+
+.header {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  gap: 100px;
+  /* position: fixed; */
+}
+
+.header img {
+  width: 100%;
+  max-width: 155px;
+  display: block;
+}

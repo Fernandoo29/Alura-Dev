@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+}
+
+.molduraFoto {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.molduraFoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nome {
+  margin-left: 15px;
+  color: var(--main-text);
+  font-size: 16px;
+}
