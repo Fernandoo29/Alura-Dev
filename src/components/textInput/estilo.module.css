@@ -4,9 +4,10 @@
   height: auto;
   border-radius: 10px;
   padding: 0 20px;
-  color: var(--main-text);
   font-weight: 200;
   font-size: 16px;
+  cursor: pointer;
+  transition: 300ms;
 }
 
 .input::placeholder {
@@ -14,4 +15,8 @@
   font-weight: 200;
   font-size: 16px;
   line-height: 24px;
+}
+
+.input:hover {
+  background-color: var(--input-bg-color-hover);
 }

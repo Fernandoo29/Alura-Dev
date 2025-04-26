@@ -1,8 +1,10 @@
 import styles from "./estilo.module.css";
+
 import aluraDevLogo from "./aluraDevLogo.png";
 
 import TextInput from "../../components/textInput";
 import Perfil from "../../components/perfil";
+import MenuNavegacao from "../../components/menuNavegacao";
 
 function EditorPage() {
   return (
@@ -12,6 +14,7 @@ function EditorPage() {
         <TextInput placeholder="Busque por algo" />
         <Perfil />
       </header>
+      <MenuNavegacao />
     </main>
   );
 }
