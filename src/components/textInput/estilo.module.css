@@ -1,7 +1,7 @@
 .input {
   background-color: var(--input-bg-color);
+  color: var(--input-placeholder-color);
   width: 100%;
-  height: auto;
   border-radius: 10px;
   padding: 0 20px;
   font-weight: 200;

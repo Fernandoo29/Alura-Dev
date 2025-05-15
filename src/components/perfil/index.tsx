@@ -9,7 +9,11 @@ interface MockUser {
   };
 }
 
-function Perfil() {
+interface PerfilProps {
+  className?: string;
+}
+
+function Perfil({ className }: PerfilProps) {
   const mockUserData: MockUser = {
     name: "Harry",
     image: {
@@ -19,7 +23,7 @@ function Perfil() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className ?? ""}`}>
       <div className={styles.molduraFoto}>
         <img src={mockUserData.image.foto} alt={mockUserData.image.alt} />
       </div>

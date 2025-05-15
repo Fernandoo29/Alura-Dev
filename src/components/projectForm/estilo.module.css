@@ -1,0 +1,12 @@
+.formContainer {
+}
+
+.formContainer .title {
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-weight: 400;
+}
+
+.input {
+  height: 56px;
+}

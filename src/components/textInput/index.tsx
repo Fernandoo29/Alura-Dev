@@ -6,6 +6,7 @@ interface TextInputProps {
   placeholder?: string;
   value?: string;
   style?: React.CSSProperties;
+  className?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -15,11 +16,12 @@ function TextInput({
   placeholder,
   value,
   style,
+  className,
   onChange,
 }: TextInputProps) {
   return (
     <input
-      className={styles.input}
+      className={`${styles.input} ${className ?? ""}`}
       style={style}
       type="text"
       name={name}

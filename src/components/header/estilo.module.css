@@ -1,0 +1,28 @@
+.header {
+  width: 100%;
+  display: flex;
+}
+
+.header img {
+  width: 100%;
+  max-width: 116px;
+  display: block;
+}
+
+.sides {
+  flex: 0 0 25%;
+  padding: 20px;
+}
+
+.main {
+  flex: 0 0 50%;
+  padding: 20px;
+}
+
+.input {
+  height: 56px;
+}
+
+.perfil {
+  align-content: center;
+}
