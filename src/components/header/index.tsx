@@ -12,10 +12,10 @@ function Header() {
         <img src={aluraDevLogo} alt="Logo do Alura Dev" />
       </div>
       <div className={styles.main}>
-        <TextInput placeholder="Busque por algo" className={styles.input} />
+        <TextInput placeholder="Busque por algo" />
       </div>
-      <div className={styles.sides}>
-        <Perfil className={styles.perfil} />
+      <div className={styles.sides} style={{ alignContent: "center" }}>
+        <Perfil />
       </div>
     </header>
   );

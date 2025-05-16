@@ -10,3 +10,9 @@
 .input {
   height: 56px;
 }
+
+.dadoProjeto {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
