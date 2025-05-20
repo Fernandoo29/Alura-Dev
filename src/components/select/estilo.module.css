@@ -1,0 +1,22 @@
+.select {
+  background-color: var(--input-bg-color);
+  color: var(--input-placeholder-color);
+  width: 100%;
+  height: 56px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 200;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.select:hover {
+  background-color: var(--input-bg-color-hover);
+}
+
+.select option {
+  background-color: white;
+  color: #333;
+  padding: 10px; /* pode não ter efeito em todos os navegadores */
+}

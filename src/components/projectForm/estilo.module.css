@@ -1,4 +1,7 @@
 .formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .formContainer .title {
@@ -11,7 +14,7 @@
   height: 56px;
 }
 
-.dadoProjeto {
+.formArea {
   display: flex;
   flex-direction: column;
   gap: 20px;
