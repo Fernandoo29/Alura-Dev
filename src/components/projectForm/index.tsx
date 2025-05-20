@@ -4,6 +4,7 @@ import TextInput from "../textInput";
 import TextArea from "../textArea";
 import Select from "../select";
 import ColorInput from "../colorInput";
+import LightButton from "../button/lightButtons";
 
 function ProjectForm() {
   const selectOpts: { label: string; value: string }[] = [
@@ -13,7 +14,7 @@ function ProjectForm() {
   ];
 
   return (
-    <div className={styles.formContainer}>
+    <form className={styles.formContainer}>
       <div className={styles.formArea}>
         <h2 className={styles.title}>SEU PROJETO</h2>
         <TextInput placeholder="Nome do seu projeto" />
@@ -24,7 +25,8 @@ function ProjectForm() {
         <Select options={selectOpts} />
         <ColorInput />
       </div>
-    </div>
+      <LightButton>Salvar projeto</LightButton>
+    </form>
   );
 }
 

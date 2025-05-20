@@ -16,7 +16,7 @@
 }
 
 .select option {
-  background-color: white;
+  /* background-color: white; */
   color: #333;
   padding: 10px; /* pode não ter efeito em todos os navegadores */
 }
