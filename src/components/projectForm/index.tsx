@@ -8,9 +8,9 @@ import LightButton from "../button/lightButtons";
 
 function ProjectForm() {
   const selectOpts: { label: string; value: string }[] = [
-    { label: "Valor1", value: "v1" },
-    { label: "Valor2", value: "v2" },
-    { label: "Valor3", value: "v3" },
+    { label: "JavaScript", value: "javascript" },
+    { label: "HTML", value: "html" },
+    { label: "CSS", value: "css" },
   ];
 
   return (

@@ -1,8 +1,9 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: end;
-  /* margin-right: 1em; */
+  float: right;
+  padding: 12px;
+  border-radius: 8px;
 }
 
 .molduraFoto {
@@ -20,4 +21,8 @@
 .nome {
   margin-left: 15px;
   font-size: 16px;
+}
+
+.container:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }

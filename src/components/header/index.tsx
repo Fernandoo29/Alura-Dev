@@ -9,7 +9,11 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.sides}>
-        <img src={aluraDevLogo} alt="Logo do Alura Dev" />
+        <img
+          className={styles.logo}
+          src={aluraDevLogo}
+          alt="Logo do Alura Dev"
+        />
       </div>
       <div className={styles.main}>
         <TextInput placeholder="Busque por algo" />
