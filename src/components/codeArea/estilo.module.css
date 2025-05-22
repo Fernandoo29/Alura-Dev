@@ -1,8 +1,47 @@
 .container {
+  height: 366px;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: rgba(107, 209, 255, 1);
+}
+
+.codeAreaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   height: 100%;
+  background-color: rgba(20, 20, 20, 1);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.macFakeInterface {
+  display: flex;
+  gap: 5px;
+}
+
+.circulo {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.circuloVermelho {
+  background-color: rgba(255, 95, 86, 1);
+}
+
+.circuloAmarelo {
+  background-color: rgba(255, 189, 46, 1);
+}
+
+.circuloVerde {
+  background-color: rgba(39, 201, 63, 1);
 }
 
 .codeArea {
-  background-color: black;
   height: 100%;
+  width: 100%;
+  color: white;
+  font-family: "Roboto Mono";
+  resize: none;
 }
