@@ -30,6 +30,12 @@
   --light-button-hover: rgba(123, 164, 252, 1);
   --light-button-active: rgba(80, 129, 251, 0.72);
   --light-button-focus: rgba(150, 185, 253, 1);
+
+  /* dark button */
+  --dark-button-bg-color: rgba(80, 129, 251, 0.08);
+  --dark-button-hover: rgba(80, 129, 251, 0.16);
+  --dark-button-active: rgba(80, 129, 251, 0.24);
+  --dark-button-focus: rgba(80, 129, 251, 0.24);
 }
 
 html,
