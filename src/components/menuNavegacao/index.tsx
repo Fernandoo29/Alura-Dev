@@ -2,6 +2,7 @@ import styles from "./estilo.module.css";
 
 import { FaCode } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
+import ItemNavegacao from "./itemNavegacao";
 
 function MenuNavegacao() {
   return (
@@ -9,14 +10,12 @@ function MenuNavegacao() {
       <h2 className={styles.title}>MENU</h2>
       <nav>
         <ul>
-          <li className={styles.item}>
-            <FaCode />
-            <p>Editor de código</p>
-          </li>
-          <li className={`${styles.item} ${styles.ativo}`}>
-            <FaUsers />
-            <p>Comunidade</p>
-          </li>
+          <ItemNavegacao
+            isAtivo={true}
+            icon={FaCode}
+            label="Editor de código"
+          />
+          <ItemNavegacao icon={FaUsers} label="Comunidade" />
         </ul>
       </nav>
     </aside>

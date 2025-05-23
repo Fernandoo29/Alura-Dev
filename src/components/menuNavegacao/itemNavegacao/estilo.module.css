@@ -1,0 +1,39 @@
+.item {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.item p {
+  margin-left: 15px;
+  color: var(--main-text-disable);
+  transition: color 0.3s ease;
+}
+
+.item svg {
+  background-color: var(--button-bg-color-disable);
+  color: var(--main-text-disable);
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  padding: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.item:hover:not(.ativo) p {
+  color: var(--main-text-hover);
+}
+.item:hover:not(.ativo) svg {
+  background-color: var(--button-bg-color-hover);
+  color: var(--main-text-hover);
+}
+
+.ativo p {
+  color: var(--main-text);
+}
+
+.ativo svg {
+  background-color: var(--button-bg-color);
+  color: var(--main-text);
+}
