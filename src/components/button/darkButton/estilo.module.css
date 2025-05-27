@@ -8,7 +8,7 @@
   line-height: 24px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-width 0.3s ease;
+  transition: background-color 0.2s ease, border-width 0.2s ease;
 }
 
 .buttonContainer:hover {

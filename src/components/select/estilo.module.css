@@ -15,6 +15,10 @@
   background-color: var(--input-bg-color-hover);
 }
 
+.select:focus {
+  background-color: var(--input-bg-color-hover);
+}
+
 .select option {
   /* background-color: white; */
   color: #333;

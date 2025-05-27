@@ -7,6 +7,7 @@ interface ItemNavegacaoProps {
   label: string;
   isAtivo?: boolean;
   className?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 function ItemNavegacao({
@@ -14,12 +15,15 @@ function ItemNavegacao({
   label,
   isAtivo,
   className,
+  onClick,
 }: ItemNavegacaoProps) {
   return (
     <li
+      tabIndex={0}
       className={`${styles.item} ${isAtivo ? styles.ativo : ""} ${
         className ?? ""
       }`}
+      onClick={onClick}
     >
       <Icon />
       <p>{label}</p>
