@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import selectedLanguageReducer from "./features/selectedLanguageSlice";
+import selectedCodeAreaColorReducer from "./features/selectedCodeAreaColorSlice";
 
 export const store = configureStore({
   reducer: {
     selectLanguage: selectedLanguageReducer,
+    selectCodeAreaColor: selectedCodeAreaColorReducer,
   },
 });
 

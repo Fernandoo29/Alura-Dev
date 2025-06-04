@@ -20,6 +20,9 @@ function CodeArea(_, ref: React.Ref<ICodeArea>) {
   const selectedLanguage = useSelector(
     (state: RootState) => state.selectLanguage.value
   );
+  const selectedCodeAreaColor = useSelector(
+    (state: RootState) => state.selectCodeAreaColor.value
+  );
 
   useImperativeHandle(ref, () => ({
     HighlightToggle() {
@@ -32,7 +35,10 @@ function CodeArea(_, ref: React.Ref<ICodeArea>) {
   }));
 
   return (
-    <div className={styles.container}>
+    <div
+      style={{ backgroundColor: selectedCodeAreaColor }}
+      className={styles.container}
+    >
       <div className={styles.codeAreaContainer}>
         <div className={styles.macFakeInterface}>
           <div className={`${styles.circulo} ${styles.circuloVermelho}`} />
