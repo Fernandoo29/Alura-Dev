@@ -1,6 +1,12 @@
 import styles from "./estilo.module.css";
 
-import { useRef, useState, forwardRef, useImperativeHandle } from "react";
+import {
+  useRef,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+} from "react";
 
 import { RootState } from "../redux/store";
 import { useSelector } from "react-redux";
@@ -24,15 +30,25 @@ function CodeArea(_, ref: React.Ref<ICodeArea>) {
     (state: RootState) => state.selectCodeAreaColor.value
   );
 
+  // useEffect(() => {
+  //   if (codeRef.current) {
+  //     codeRef.current.innerText = code;
+  //   }
+  // }, []);
+
   useImperativeHandle(ref, () => ({
     HighlightToggle() {
       if (codeRef.current) {
-        console.log("teste");
         codeRef.current.removeAttribute("data-highlighted");
         hljs.highlightElement(codeRef.current);
       }
     },
   }));
+
+  // const handleInput = () => {
+  //   const newValue = codeRef.current?.innerText ?? "";
+  //   setCode(newValue);
+  // };
 
   return (
     <div
@@ -46,13 +62,17 @@ function CodeArea(_, ref: React.Ref<ICodeArea>) {
           <div className={`${styles.circulo} ${styles.circuloVerde}`} />
         </div>
         <div className={styles.codeWrapper}>
-          <code
-            contentEditable="true"
-            className={`${styles.codeArea} hljs language-${selectedLanguage}`}
-            ref={codeRef}
-          >
-            {code}
-          </code>
+          <pre>
+            <code
+              contentEditable
+              suppressContentEditableWarning
+              // onInput={handleInput}
+              className={`${styles.codeArea} hljs language-${selectedLanguage}`}
+              ref={codeRef}
+            >
+              {code}
+            </code>
+          </pre>
         </div>
       </div>
     </div>

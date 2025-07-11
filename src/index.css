@@ -19,23 +19,23 @@
   --input-placeholder-color: rgba(255, 255, 255, 0.6);
 
   /* buttons */
-  --button-bg-color: rgba(80, 128, 251, 1);
+  /* --button-bg-color: rgba(80, 128, 251, 1); */
 
   /* Menu buttons */
   --button-bg-color-hover: rgba(80, 128, 251, 0.64);
   --button-bg-color-disable: rgba(80, 128, 251, 0.16);
 
   /* light button */
-  --button-text-color: rgba(5, 29, 59, 1);
-  --light-button-hover: rgba(123, 164, 252, 1);
+  /* --button-text-color: rgba(5, 29, 59, 1); */
+  /* --light-button-hover: rgba(123, 164, 252, 1);
   --light-button-active: rgba(80, 129, 251, 0.72);
-  --light-button-focus: rgba(150, 185, 253, 1);
+  --light-button-focus: rgba(150, 185, 253, 1); */
 
   /* dark button */
-  --dark-button-bg-color: rgba(80, 129, 251, 0.08);
+  /* --dark-button-bg-color: rgba(80, 129, 251, 0.08);
   --dark-button-hover: rgba(80, 129, 251, 0.16);
   --dark-button-active: rgba(80, 129, 251, 0.24);
-  --dark-button-focus: rgba(80, 129, 251, 0.24);
+  --dark-button-focus: rgba(80, 129, 251, 0.24); */
 }
 
 html,

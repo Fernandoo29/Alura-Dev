@@ -13,12 +13,23 @@
 }
 
 .sides {
-  flex: 0 0 25%;
+  flex: 25%;
   padding: 20px;
 }
 
 .main {
-  flex: 0 0 50%;
+  flex: 50%;
   padding: 20px;
   overflow: hidden;
+}
+
+/* Tablets e Celular em paisagem */
+@media screen and (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column;
+  }
+
+  .sides:first-child {
+    display: none;
+  }
 }

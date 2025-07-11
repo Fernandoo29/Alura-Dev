@@ -1,6 +1,6 @@
 .buttonContainer {
-  background-color: var(--button-bg-color);
-  color: var(--button-text-color);
+  background-color: rgba(80, 128, 251, 1);
+  color: rgba(5, 29, 59, 1);
   width: 100%;
   height: 56px;
   border-radius: 8px;
@@ -8,17 +8,18 @@
   line-height: 24px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.1s ease;
 }
 
 .buttonContainer:hover {
-  background-color: var(--light-button-hover);
-}
-
-.buttonContainer:active {
-  border: var(--light-button-active) 4px solid;
+  background-color: rgba(123, 164, 252, 1);
 }
 
 .buttonContainer:focus {
-  background-color: var(--light-button-focus);
+  background-color: rgba(150, 185, 253, 1);
+}
+
+.buttonContainer:active {
+  box-shadow: 0 0 0 4px rgba(80, 129, 251, 0.72);
+  background-color: rgba(123, 164, 252, 1);
 }

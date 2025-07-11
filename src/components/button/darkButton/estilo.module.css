@@ -1,6 +1,6 @@
 .buttonContainer {
-  background-color: var(--dark-button-bg-color);
-  color: var(--main-text);
+  background-color: rgba(80, 129, 251, 0.08);
+  color: white;
   width: 100%;
   height: 56px;
   border-radius: 8px;
@@ -8,17 +8,18 @@
   line-height: 24px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-width 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.1s ease;
 }
 
 .buttonContainer:hover {
-  background-color: var(--dark-button-hover);
-}
-
-.buttonContainer:active {
-  border: var(--dark-button-active) 4px solid;
+  background-color: rgba(80, 129, 251, 0.16);
 }
 
 .buttonContainer:focus {
-  background-color: var(--dark-button-focus);
+  background-color: rgba(80, 129, 251, 0.24);
+}
+
+.buttonContainer:active {
+  box-shadow: 0 0 0 4px rgba(80, 129, 251, 0.24);
+  background-color: rgba(80, 129, 251, 0.16);
 }

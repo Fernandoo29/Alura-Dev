@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   display: flex;
+  position: relative;
 }
 
 .logo {
@@ -10,11 +11,66 @@
 }
 
 .sides {
-  flex: 0 0 25%;
+  flex: 25%;
   padding: 20px;
 }
 
 .main {
-  flex: 0 0 50%;
+  flex: 50%;
   padding: 20px;
+}
+
+.sides:nth-of-type(4) {
+  display: none;
+  padding: 0px;
+}
+.sides:nth-of-type(4) svg {
+  /* background-color: rgba(80, 129, 251, 0.16); */
+  color: rgba(255, 255, 255, 1);
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  float: right;
+}
+
+.menuFlutuante {
+  display: none;
+  position: absolute;
+  background-color: rgba(45, 65, 91, 1);
+  width: 33%;
+  height: 80vh;
+  padding: 0 20px;
+  border-radius: 5px;
+  right: 0;
+  top: 90px;
+  z-index: 1;
+}
+
+.floatingMenuBtn svg:active {
+  background-color: rgba(80, 129, 251, 0.16);
+}
+
+/* Tablets e Celular em paisagem */
+@media screen and (max-width: 768px) {
+  .sides {
+    flex: 20%;
+  }
+
+  .main {
+    flex: 70%;
+  }
+
+  .sides:nth-of-type(3) {
+    display: none;
+  }
+  .sides:nth-of-type(4) {
+    display: block;
+    flex: 10%;
+  }
+
+  .menuFlutuante {
+    display: block;
+  }
 }

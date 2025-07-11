@@ -7,31 +7,18 @@
 
 .item p {
   margin-left: 15px;
-  color: var(--main-text-disable);
+  color: rgba(255, 255, 255, 0.56);
   transition: color 0.3s ease;
 }
 
 .item svg {
-  background-color: var(--button-bg-color-disable);
-  color: var(--main-text-disable);
+  background-color: rgba(80, 129, 251, 0.16);
+  color: rgba(255, 255, 255, 0.56);
   width: 48px;
   height: 48px;
   border-radius: 16px;
   padding: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-width 0.1s ease;
-}
-
-.item:hover p {
-  color: var(--main-text-hover);
-}
-.item:hover svg {
-  background-color: var(--button-bg-color-hover);
-  color: var(--main-text-hover);
-}
-
-.item:active svg {
-  border: var(--light-button-active) 4px solid;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .item:focus {
@@ -39,14 +26,26 @@
 }
 
 .item:focus svg {
-  background-color: var(--light-button-focus);
+  background-color: rgba(80, 129, 251, 1);
+}
+
+.item:hover p {
+  color: rgba(255, 255, 255, 0.72);
+}
+.item:hover svg {
+  background-color: rgba(80, 129, 251, 0.64);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.item:active svg {
+  background-color: rgba(80, 129, 251, 1);
 }
 
 .ativo p {
-  color: var(--main-text);
+  color: white;
 }
 
 .ativo svg {
-  background-color: var(--button-bg-color);
-  color: var(--main-text);
+  background-color: rgba(80, 128, 251, 1);
+  color: white;
 }

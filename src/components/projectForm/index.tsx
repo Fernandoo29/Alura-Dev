@@ -22,8 +22,12 @@ function ProjectForm() {
     { label: "CSS", value: "css" },
   ];
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className={styles.formContainer}>
+    <form className={styles.formContainer} onSubmit={handleSubmit}>
       <div className={styles.formArea}>
         <h2 className={styles.title}>SEU PROJETO</h2>
         <TextInput placeholder="Nome do seu projeto" />
@@ -31,14 +35,16 @@ function ProjectForm() {
       </div>
       <div className={`${styles.formArea} ${styles.personalizacao}`}>
         <h2 className={styles.title}>PERSONALIZAÇÃO</h2>
-        <Select
-          onChange={(e) => dispatch(setLanguage(e.target.value))}
-          options={selectOpts}
-        />
-        <ColorInput
-          value={selectedCodeAreaColor}
-          onChange={(e) => dispatch(setCodeAreaColor(e.target.value))}
-        />
+        <div className={`${styles.formArea} ${styles.personalizacaoInputs}`}>
+          <Select
+            onChange={(e) => dispatch(setLanguage(e.target.value))}
+            options={selectOpts}
+          />
+          <ColorInput
+            value={selectedCodeAreaColor}
+            onChange={(e) => dispatch(setCodeAreaColor(e.target.value))}
+          />
+        </div>
       </div>
       <LightButton>Salvar projeto</LightButton>
     </form>

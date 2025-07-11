@@ -26,3 +26,10 @@
 .container:hover {
   background-color: rgba(255, 255, 255, 0.08);
 }
+
+/* Tablets e Celular em paisagem */
+/* @media screen and (max-width: 768px) {
+  .container {
+    display: none;
+  }
+} */

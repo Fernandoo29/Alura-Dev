@@ -52,9 +52,10 @@
   background-color: rgba(20, 20, 20, 1) !important;
   padding: 0 !important;
   resize: none;
-  white-space: pre;
+  /* white-space: pre; */
   cursor: text;
   outline: none;
+  white-space: pre-wrap;
 }
 
 .codeArea:focus {
