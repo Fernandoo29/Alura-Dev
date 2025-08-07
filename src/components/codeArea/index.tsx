@@ -7,7 +7,7 @@ import {
   useState,
   forwardRef,
   useImperativeHandle,
-  useEffect,
+  // useEffect,
 } from "react";
 
 import { RootState } from "../redux/store";
@@ -33,7 +33,7 @@ function CodeArea(
   ref: React.Ref<ICodeArea>
 ) {
   const INITIAL_CODE = `function hello() {  console.log("hi");}`;
-  const [code, setCode] = useState(codeProp ? codeProp : INITIAL_CODE);
+  const [code] = useState(codeProp ? codeProp : INITIAL_CODE);
 
   const reduxSelectedLanguage = useSelector(
     (state: RootState) => state.selectLanguage.value

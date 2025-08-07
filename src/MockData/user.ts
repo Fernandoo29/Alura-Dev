@@ -1,6 +1,6 @@
-import { User } from "../types/user";
+import { IUser } from "../types/user";
 
-export const mockUser: User = {
+export const mockUser: IUser = {
   name: "Harry",
   user: "@Harry",
   image: {
