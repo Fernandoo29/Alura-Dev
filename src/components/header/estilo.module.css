@@ -13,6 +13,8 @@
 .sides {
   flex: 25%;
   padding: 20px;
+  min-width: 70px;
+  flex-shrink: 0;
 }
 
 .main {
@@ -20,42 +22,75 @@
   padding: 20px;
 }
 
-.sides:nth-of-type(4) {
+/*
+ .sides:nth-of-type(1) --> Alura logo 
+ .sides:nth-of-type(2) --> User perfil 
+ .sides:nth-of-type(3) --> Mobile search icon
+ .sides:nth-of-type(4) --> Mobile hamburger menu icon/close menu icon
+ .sides:nth-of-type(5) --> Mobile close search bar
+*/
+
+.sides:nth-of-type(4),
+.sides:nth-of-type(5) {
   display: none;
   padding: 0px;
 }
-.sides:nth-of-type(4) svg {
-  /* background-color: rgba(80, 129, 251, 0.16); */
+
+.sides:nth-of-type(4) svg,
+.sides:nth-of-type(5) svg,
+.searchBarMobile .sides svg {
   color: rgba(255, 255, 255, 1);
-  width: 50px;
-  height: 50px;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
   padding: 10px;
   border-radius: 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
   float: right;
+  flex-shrink: 0;
 }
 
 .menuFlutuante {
   display: none;
   position: absolute;
   background-color: rgba(45, 65, 91, 1);
-  width: 33%;
+  width: 226px;
   height: 80vh;
   padding: 0 20px;
   border-radius: 5px;
   right: 0;
-  top: 90px;
-  z-index: 1;
+  top: 75px;
+  z-index: 2;
 }
 
 .floatingMenuBtn svg:active {
   background-color: rgba(80, 129, 251, 0.16);
 }
 
+.searchBarMobile {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+}
+
+.searchBarMobile .main {
+  display: block;
+  flex: 85;
+  padding: 18px 0;
+}
+.searchBarMobile .sides {
+  flex: 15;
+}
+
 /* Tablets e Celular em paisagem */
 @media screen and (max-width: 768px) {
   .sides {
     flex: 20%;
+    min-width: 70px; /* 50px SVG + 2*10px padding */
+    flex-shrink: 0;
   }
 
   .main {
@@ -65,12 +100,44 @@
   .sides:nth-of-type(3) {
     display: none;
   }
-  .sides:nth-of-type(4) {
+  .sides:nth-of-type(5) {
     display: block;
     flex: 10%;
   }
 
   .menuFlutuante {
     display: block;
+  }
+}
+
+/* Celular */
+@media screen and (max-width: 425px) {
+  .header {
+    padding: 10px 0 35px 0;
+  }
+
+  .main {
+    display: none;
+  }
+
+  .sides {
+    padding: 0;
+  }
+
+  .sides:nth-of-type(1) {
+    flex: 60%;
+  }
+  .sides:nth-of-type(4),
+  .sides:nth-of-type(5) {
+    display: block;
+    flex: 20%;
+  }
+
+  .menuFlutuante {
+    width: 198px;
+  }
+
+  .searchBarMobile .main {
+    padding: 0;
   }
 }

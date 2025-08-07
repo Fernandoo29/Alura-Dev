@@ -33,3 +33,23 @@
     display: none;
   }
 }
+
+/* Celular */
+@media screen and (max-width: 425px) {
+  .pageContainer {
+    padding: 0 1em;
+  }
+
+  .codeAreaContainer {
+    gap: 30px;
+  }
+
+  .main {
+    padding: 0;
+  }
+
+  .sides {
+    padding: 0;
+    padding-top: 40px;
+  }
+}

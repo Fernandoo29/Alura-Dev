@@ -20,9 +20,17 @@
   gap: 20px;
 }
 
+/* Tablets e Celular em paisagem */
 @media screen and (max-width: 768px) {
   .personalizacaoInputs {
     display: flex;
     flex-direction: row;
+  }
+}
+
+/* Celular */
+@media screen and (max-width: 425px) {
+  .personalizacaoInputs {
+    flex-direction: column;
   }
 }

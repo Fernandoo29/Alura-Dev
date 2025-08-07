@@ -1,5 +1,7 @@
 import styles from "./estilo.module.css";
 
+import { ICodeArea } from "../../types";
+
 import {
   useRef,
   useState,
@@ -14,21 +16,40 @@ import { useSelector } from "react-redux";
 import hljs from "highlight.js";
 import "highlight.js/styles/agate.css";
 
-export interface ICodeArea {
-  HighlightToggle: () => void;
+interface CodeAreaProps {
+  selectedCodeAreaColorProp?: string;
+  selectedLanguageProp?: string;
+  codeProp?: string;
+  editable?: boolean;
 }
 
-function CodeArea(_, ref: React.Ref<ICodeArea>) {
-  const [code, setCode] = useState(
-    `function hello() {\n  console.log("hi");\n}`
-  );
-  const codeRef = useRef<HTMLElement>(null);
-  const selectedLanguage = useSelector(
+function CodeArea(
+  {
+    selectedCodeAreaColorProp = "",
+    selectedLanguageProp = "",
+    codeProp = "",
+    editable = true,
+  }: CodeAreaProps,
+  ref: React.Ref<ICodeArea>
+) {
+  const INITIAL_CODE = `function hello() {  console.log("hi");}`;
+  const [code, setCode] = useState(codeProp ? codeProp : INITIAL_CODE);
+
+  const reduxSelectedLanguage = useSelector(
     (state: RootState) => state.selectLanguage.value
   );
-  const selectedCodeAreaColor = useSelector(
+  const selectedLanguage = selectedLanguageProp
+    ? selectedLanguageProp
+    : reduxSelectedLanguage;
+
+  const reduxSelectedCodeAreaColor = useSelector(
     (state: RootState) => state.selectCodeAreaColor.value
   );
+  const selectedCodeAreaColor = selectedCodeAreaColorProp
+    ? selectedCodeAreaColorProp
+    : reduxSelectedCodeAreaColor;
+
+  const codeRef = useRef<HTMLElement>(null);
 
   // useEffect(() => {
   //   if (codeRef.current) {
@@ -64,7 +85,7 @@ function CodeArea(_, ref: React.Ref<ICodeArea>) {
         <div className={styles.codeWrapper}>
           <pre>
             <code
-              contentEditable
+              contentEditable={editable}
               suppressContentEditableWarning
               // onInput={handleInput}
               className={`${styles.codeArea} hljs language-${selectedLanguage}`}
@@ -79,4 +100,4 @@ function CodeArea(_, ref: React.Ref<ICodeArea>) {
   );
 }
 
-export default forwardRef<ICodeArea>(CodeArea);
+export default forwardRef<ICodeArea, CodeAreaProps>(CodeArea);

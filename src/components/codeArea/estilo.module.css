@@ -2,6 +2,8 @@
   height: 366px;
   padding: 32px;
   border-radius: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .codeAreaContainer {

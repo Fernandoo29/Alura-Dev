@@ -1,0 +1,90 @@
+.info {
+  line-height: 2.5em;
+}
+
+.infoContainer {
+  padding: 32px;
+  padding-top: 40px;
+  padding-bottom: 22px;
+  background-color: rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  margin-top: -16px;
+  height: 25%;
+  overflow: hidden;
+  transition: height 0.2s ease;
+}
+.container:hover .infoContainer {
+  height: 38%;
+}
+
+.codeAreaContainer {
+  cursor: pointer;
+}
+.codeAreaContainer code {
+  cursor: pointer;
+}
+
+.cardBtn {
+  display: flex;
+  align-items: center;
+  margin-right: 0.3rem;
+  height: 33px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.cardBtn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.cardBtn:active {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.cardBtn svg {
+  margin-right: 5px;
+}
+
+.container footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.perfilContainer {
+  display: flex;
+  align-items: center;
+  float: right;
+  border-radius: 8px;
+  padding: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.perfilContainer:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.perfilContainer:active {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.molduraFoto {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.molduraFoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nome {
+  margin-left: 8px;
+  font-size: 16px;
+}

@@ -4,9 +4,11 @@ import { useRef } from "react";
 
 import MenuNavegacao from "../../components/menuNavegacao";
 import Header from "../../components/header";
-import CodeArea, { ICodeArea } from "../../components/codeArea";
+import CodeArea from "../../components/codeArea";
 import ProjectForm from "../../components/projectForm";
 import DarkButton from "../../components/button/darkButton";
+
+import { ICodeArea } from "../../types";
 
 function EditorPage() {
   const CodeAreaRef = useRef<ICodeArea>(null);
