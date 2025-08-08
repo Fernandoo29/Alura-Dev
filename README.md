@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# Alura Dev - Editor de código
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação React desenvolvida para o desafio Alura Dev.
 
-Currently, two official plugins are available:
+Alura Dev é um editor de código que te permite compartilhar códigos de forma mais atraente, possibilitando salvar o projeto tanto na aba comunidade como em um arquivo em png, jpeg ou svg.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Como rodar o projeto
 
-## Expanding the ESLint configuration
+Primeiramente é necessário ter o node js instalado, com o node instalado, clone o projeto com `git clone https://github.com/Fernandoo29/Alura-Dev.git`, após clonar o projeto, no console do seu editor de código digite o seguinte comando `npm install` para instalar todas as dependencias, e em seguida use `npm run dev` para iniciar o projeto :D
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Como utilizar
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Para utilizar o editor de código, basta clicar no bloco preto e começar a digitar, após ter digitado o seu código, clique em "Vidualisar com o highlight"
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Para que o highlight se ative, clique no botão "Visualizar com o highlight.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Para alterar a cor de fundo do editor, clique no color picked abaixo de personalização e escolha a cor desejada.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Para salvar o projeto, é necessario preencher os campos de nome e descrição, após isso clicar em "Salvar projeto".
+
+- Para visualizar o seu projeto, basta clicar na aba "Comunidade" no menu da esquerda que lá estará todos os seus projetos criados.
+
+- Para salvar o seu código em alguma extensão, clique em "Coverter para imagem!" e escolha a extensão desejada e em seguida clique em "ok".
+
+## Overview
+
+### O Challenge
+
+Os usuarios serão capazes de:
+
+- Editar o código e setar o highlight
+- Salvar o seu projeto na aba comunidades
+- Salvar o seu projeto em extensões png, jpeg ou svg
+- Verificar seu projeto na aba comunidades
+- Projetos permanecerem na aba comunidades.
+
+### Links
+
+- Site hospedado: [Alura Dev](https://alura-dev-aolu.vercel.app/comunidade)
+
+## Processo
+
+### Construito com
+
+- Tags HTMl semânticas
+- CSS Modules
+- Flexbox
+- Grid Layout
+- TypeScript
+- [React](https://reactjs.org/) - JS library
+- Redux
+- StoryBook
+- Vite
+
+### Continuação do desenvolvimento
+
+Pretendo adicionar algumas features como:
+
+- Alterar nome e foto de perfil
+- Dar like
+- Ver perfil
+- Adicionar github no perfil
+- Barra de pesquisa funcional
+
+## Autor
+
+- Site - [Fernando Bernardo](https://fernandobernardo.dev.br/)
+- GitHub - [Fernando Bernardo](https://github.com/Fernandoo29)
