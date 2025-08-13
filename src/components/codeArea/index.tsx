@@ -1,5 +1,9 @@
 import styles from "./estilo.module.css";
 
+// import html2canvas from "html2canvas";
+// import { toPng, toJpeg, toSvg } from "html-to-image";
+// import { LuImageDown } from "react-icons/lu";
+
 import { ICodeArea } from "../../types";
 
 import {
@@ -14,7 +18,8 @@ import { RootState } from "../redux/store";
 import { useSelector } from "react-redux";
 
 import hljs from "highlight.js";
-import "highlight.js/styles/agate.css";
+// import "../../styles/highlight/agate.css";
+import ShareButton from "./shareButton";
 
 interface CodeAreaProps {
   selectedCodeAreaColorProp?: string;
@@ -32,7 +37,7 @@ function CodeArea(
   }: CodeAreaProps,
   ref: React.Ref<ICodeArea>
 ) {
-  const INITIAL_CODE = `function hello() {  console.log("hi");}`;
+  const INITIAL_CODE = `function hello() {\n  console.log("hi1");\n}`;
   const [code] = useState(codeProp ? codeProp : INITIAL_CODE);
 
   const reduxSelectedLanguage = useSelector(
@@ -50,6 +55,7 @@ function CodeArea(
     : reduxSelectedCodeAreaColor;
 
   const codeRef = useRef<HTMLElement>(null);
+  const codeAreaRef = useRef<HTMLDivElement>(null);
 
   // useEffect(() => {
   //   if (codeRef.current) {
@@ -75,12 +81,18 @@ function CodeArea(
     <div
       style={{ backgroundColor: selectedCodeAreaColor }}
       className={styles.container}
+      ref={codeAreaRef}
     >
       <div className={styles.codeAreaContainer}>
         <div className={styles.macFakeInterface}>
-          <div className={`${styles.circulo} ${styles.circuloVermelho}`} />
-          <div className={`${styles.circulo} ${styles.circuloAmarelo}`} />
-          <div className={`${styles.circulo} ${styles.circuloVerde}`} />
+          <div className={styles.dots}>
+            <div className={`${styles.circulo} ${styles.circuloVermelho}`} />
+            <div className={`${styles.circulo} ${styles.circuloAmarelo}`} />
+            <div className={`${styles.circulo} ${styles.circuloVerde}`} />
+          </div>
+          <div className={styles.shareImgBtnContainer}>
+            <ShareButton codeAreaRef={codeAreaRef} />
+          </div>
         </div>
         <div className={styles.codeWrapper}>
           <pre>

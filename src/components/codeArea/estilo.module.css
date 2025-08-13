@@ -16,9 +16,18 @@
   padding: 16px;
 }
 
-.macFakeInterface {
+.dots {
   display: flex;
   gap: 5px;
+}
+
+.macFakeInterface {
+  display: flex;
+}
+
+.shareImgBtnContainer {
+  position: relative;
+  width: 100%;
 }
 
 .circulo {
