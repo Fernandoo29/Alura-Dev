@@ -45,7 +45,7 @@ const CodeEditor = ({
     : reduxSelectedCodeAreaColor;
 
   function handleEditorMount(
-    editor: editor.IStandaloneCodeEditor,
+    _editor: editor.IStandaloneCodeEditor,
     monaco: Monaco
   ) {
     // Define um tema customizado
