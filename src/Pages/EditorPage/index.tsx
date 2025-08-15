@@ -1,22 +1,11 @@
 import styles from "./estilo.module.css";
 
-import { useRef } from "react";
-
 import MenuNavegacao from "../../components/menuNavegacao";
 import Header from "../../components/header";
-import CodeArea from "../../components/codeArea";
 import ProjectForm from "../../components/projectForm";
-import DarkButton from "../../components/button/darkButton";
-
-import { ICodeArea } from "../../types";
+import CodeEditor from "../../components/codeEditor";
 
 function EditorPage() {
-  const CodeAreaRef = useRef<ICodeArea>(null);
-
-  const handleHighlightBtnClick: () => void = () => {
-    CodeAreaRef.current?.HighlightToggle();
-  };
-
   return (
     <div className={styles.pageContainer}>
       <Header />
@@ -25,10 +14,7 @@ function EditorPage() {
           <MenuNavegacao />
         </div>
         <div className={`${styles.main} ${styles.codeAreaContainer}`}>
-          <CodeArea ref={CodeAreaRef} />
-          <DarkButton onClick={handleHighlightBtnClick}>
-            Visualizar com o highlight
-          </DarkButton>
+          <CodeEditor />
         </div>
         <div className={styles.sides}>
           <ProjectForm />

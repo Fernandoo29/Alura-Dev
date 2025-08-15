@@ -1,11 +1,11 @@
 import styles from "./estilo.module.css";
 
-import CodeArea from "../codeArea";
 import { IProject } from "../../types";
 import { FaComment } from "react-icons/fa6";
 import { MdFavorite } from "react-icons/md";
 import { ICodeArea } from "../../types";
 import { useEffect, useRef } from "react";
+import CodeEditor from "../codeEditor";
 
 interface Props {
   project: IProject;
@@ -26,12 +26,11 @@ function CardCode({ project }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.codeAreaContainer} onClick={openOnEditor}>
-        <CodeArea
+        <CodeEditor
           selectedCodeAreaColorProp={project.backgroundColor}
           codeProp={project.content}
           selectedLanguageProp={project.language}
           editable={false}
-          ref={codeAreaRef}
         />
       </div>
       <div className={styles.infoContainer}>
