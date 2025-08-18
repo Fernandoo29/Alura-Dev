@@ -81,6 +81,7 @@ const CodeEditor = ({
             </div>
           </div>
           <div className={styles.codeWrapper}>
+            {!editable && <div className={styles.editableBlockOverlay}></div>}
             <Editor
               language={selectedLanguage}
               defaultValue={code}
