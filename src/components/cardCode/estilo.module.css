@@ -20,9 +20,6 @@
 .codeAreaContainer {
   cursor: pointer;
 }
-.codeAreaContainer code {
-  cursor: pointer;
-}
 
 .cardBtn {
   display: flex;

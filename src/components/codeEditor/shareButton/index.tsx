@@ -82,7 +82,10 @@ function ShareButton({ codeAreaRef }: ShareButtonProps) {
     <>
       <div
         className={styles.shareImgBtn}
-        onClick={() => setIsShareTypeSelectorOpen(!isShareTypeSelectorOpen)}
+        onClick={(event) => {
+          event.stopPropagation();
+          setIsShareTypeSelectorOpen(!isShareTypeSelectorOpen);
+        }}
       >
         <LuImageDown />
       </div>
