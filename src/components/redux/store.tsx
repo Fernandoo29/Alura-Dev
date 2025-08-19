@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import selectedLanguageReducer from "./features/selectedLanguageSlice";
-import selectedCodeAreaColorReducer from "./features/selectedCodeAreaColorSlice";
+import selectedProjectReducer from "./features/selectedProjectSlice";
+import updateProjectContent from "./features/selectedProjectSlice";
 
 export const store = configureStore({
   reducer: {
-    selectLanguage: selectedLanguageReducer,
-    selectCodeAreaColor: selectedCodeAreaColorReducer,
+    selectedProject: selectedProjectReducer,
+    updateProject: updateProjectContent,
   },
 });
 

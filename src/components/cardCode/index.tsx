@@ -3,35 +3,28 @@ import styles from "./estilo.module.css";
 import { IProject } from "../../types";
 import { FaComment } from "react-icons/fa6";
 import { MdFavorite } from "react-icons/md";
-import { ICodeArea } from "../../types";
-import { useEffect, useRef } from "react";
 import CodeEditor from "../codeEditor";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setSelectedProject } from "../redux/features/selectedProjectSlice";
 
 interface Props {
   project: IProject;
 }
 
 function CardCode({ project }: Props) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const openOnEditor = (): void => {
-    //salvar no redux o card a ser editado e redirecionar para a pagina de edição
-    console.log("teste");
+    dispatch(setSelectedProject(project));
+    navigate("/");
   };
-
-  const codeAreaRef = useRef<ICodeArea>(null);
-
-  useEffect(() => {
-    codeAreaRef.current?.HighlightToggle();
-  }, []);
 
   return (
     <div className={styles.container}>
       <div className={styles.codeAreaContainer} onClick={openOnEditor}>
-        <CodeEditor
-          selectedCodeAreaColorProp={project.backgroundColor}
-          codeProp={project.content}
-          selectedLanguageProp={project.language}
-          editable={false}
-        />
+        <CodeEditor project={project} editable={false} />
       </div>
       <div className={styles.infoContainer}>
         <div className={styles.info}>

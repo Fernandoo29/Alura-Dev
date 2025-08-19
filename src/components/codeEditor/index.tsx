@@ -3,46 +3,31 @@ import styles from "./estilo.module.css";
 import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import { IProject } from "../../types";
 
 import ShareButton from "./shareButton";
 import Editor, { type Monaco } from "@monaco-editor/react";
 import type { editor } from "monaco-editor";
 
 interface CodeAreaProps {
-  selectedCodeAreaColorProp?: string;
-  selectedLanguageProp?: string;
-  codeProp?: string;
+  project?: IProject;
   editable?: boolean;
 }
 
-const CodeEditor = ({
-  selectedCodeAreaColorProp = "",
-  selectedLanguageProp = "",
-  codeProp = "",
-  editable = true,
-}: CodeAreaProps) => {
-  const INITIAL_CODE = `function hello() {\n  console.log("hi1");\n}`;
-  const [code, setCode] = useState(codeProp ? codeProp : INITIAL_CODE);
-  const codeAreaRef = useRef<HTMLDivElement>(null);
-
-  /* This code snippet is using the `useSelector` hook from React Redux to access the `selectLanguage`
- value from the Redux store. */
+const CodeEditor = ({ project, editable = true }: CodeAreaProps) => {
   const reduxSelectedLanguage = useSelector(
-    (state: RootState) => state.selectLanguage.value
+    (state: RootState) => state.selectedProject.language
   );
-
-  const selectedLanguage = selectedLanguageProp
-    ? selectedLanguageProp
-    : reduxSelectedLanguage;
-
-  /* This code snippet is using the `useSelector` hook from React Redux to access the `selectCodeAreaColor` 
-  value from the Redux store.*/
   const reduxSelectedCodeAreaColor = useSelector(
-    (state: RootState) => state.selectCodeAreaColor.value
+    (state: RootState) => state.selectedProject.backgroundColor
   );
-  const selectedCodeAreaColor = selectedCodeAreaColorProp
-    ? selectedCodeAreaColorProp
-    : reduxSelectedCodeAreaColor;
+  const reduxSelectedCode = useSelector(
+    (state: RootState) => state.selectedProject.content
+  );
+
+  // Se o projeto não for passado, usa os valores do Redux
+  const [code, setCode] = useState(project?.content || reduxSelectedCode);
+  const codeAreaRef = useRef<HTMLDivElement>(null);
 
   function handleEditorMount(
     _editor: editor.IStandaloneCodeEditor,
@@ -65,7 +50,10 @@ const CodeEditor = ({
   return (
     <div className={styles.codeEditorContainer}>
       <div
-        style={{ backgroundColor: selectedCodeAreaColor }}
+        style={{
+          backgroundColor:
+            project?.backgroundColor || reduxSelectedCodeAreaColor,
+        }}
         className={styles.container}
         ref={codeAreaRef}
       >
@@ -83,7 +71,7 @@ const CodeEditor = ({
           <div className={styles.codeWrapper}>
             {!editable && <div className={styles.editableBlockOverlay}></div>}
             <Editor
-              language={selectedLanguage}
+              language={project?.language || reduxSelectedLanguage}
               defaultValue={code}
               onChange={(value) => setCode(value || "")}
               onMount={handleEditorMount}
