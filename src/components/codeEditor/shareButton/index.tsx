@@ -12,7 +12,11 @@ interface ShareButtonProps {
 function ShareButton({ codeAreaRef }: ShareButtonProps) {
   const [isShareTypeSelectorOpen, setIsShareTypeSelectorOpen] = useState(false);
 
-  const downloadImgShare = async (downloadType: string) => {
+  const downloadImgShare = async (
+    event: React.MouseEvent,
+    downloadType: string
+  ) => {
+    event.stopPropagation();
     setIsShareTypeSelectorOpen(!isShareTypeSelectorOpen);
 
     // Captura o elemento do botão de compartilhamento
@@ -92,19 +96,19 @@ function ShareButton({ codeAreaRef }: ShareButtonProps) {
       {isShareTypeSelectorOpen && (
         <div className={styles.shareTypeSelector}>
           <div
-            onClick={() => downloadImgShare("PNG")}
+            onClick={(event) => downloadImgShare(event, "PNG")}
             className={styles.shareTypeOption}
           >
             PNG
           </div>
           <div
-            onClick={() => downloadImgShare("JPG")}
+            onClick={(event) => downloadImgShare(event, "JPG")}
             className={styles.shareTypeOption}
           >
             JPG
           </div>
           <div
-            onClick={() => downloadImgShare("SVG")}
+            onClick={(event) => downloadImgShare(event, "SVG")}
             className={styles.shareTypeOption}
           >
             SVG

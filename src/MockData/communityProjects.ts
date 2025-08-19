@@ -6,7 +6,7 @@ export const CommunityProjects: IProject[] = [
     id: 1,
     title: "Projeto de JavaScript",
     description: "Essa é a descrição do meu projeto de JavaScript",
-    content: `function hello() {\n  console.log("hi1");\n}`,
+    content: `function hello() {\n  console.log("hello world");\n}`,
     user: mockUser,
     coments: 9,
     like: 9,
