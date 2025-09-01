@@ -10,7 +10,7 @@ export const CommunityProjects: IProject[] = [
     user: mockUser,
     coments: 9,
     like: 9,
-    backgroundColor: "#ee2828ff",
+    backgroundColor: "#ee2828",
     language: "javascript",
   },
   {

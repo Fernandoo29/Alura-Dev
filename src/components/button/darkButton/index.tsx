@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 function DarkButton({ className, children, ...rest }: ButtonProps) {
   return (
     <button
-      className={`${className ?? ""} ${styles.buttonContainer}`}
+      className={`${styles.buttonContainer} ${className ?? ""}`}
       {...rest}
     >
       {children ?? ""}

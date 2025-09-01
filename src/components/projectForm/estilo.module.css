@@ -20,6 +20,18 @@
   gap: 20px;
 }
 
+.buttonsArea {
+  display: flex;
+  gap: 16px;
+}
+
+.buttonsArea .cleanBtn svg {
+  fill: white;
+  width: 30px;
+  height: 30px;
+  justify-self: center;
+}
+
 /* Tablets e Celular em paisagem */
 @media screen and (max-width: 768px) {
   .personalizacaoInputs {

@@ -40,9 +40,12 @@ export const selectedProjectSlice = createSlice({
       const { field, value } = action.payload;
       state[field] = value;
     },
+    resetProject: () => {
+      return initialState;
+    },
   },
 });
 
-export const { setSelectedProject, updateProjectContent } =
+export const { setSelectedProject, updateProjectContent, resetProject } =
   selectedProjectSlice.actions;
 export default selectedProjectSlice.reducer;

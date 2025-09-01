@@ -1,10 +1,11 @@
 import styles from "./estilo.module.css";
 
-import { useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "../redux/store";
 import { IProject } from "../../types";
 
+import { updateProjectContent } from "../redux/features/selectedProjectSlice";
 import ShareButton from "./shareButton";
 import Editor, { type Monaco } from "@monaco-editor/react";
 import type { editor } from "monaco-editor";
@@ -15,6 +16,7 @@ interface CodeAreaProps {
 }
 
 const CodeEditor = ({ project, editable = true }: CodeAreaProps) => {
+  const dispatch = useDispatch<AppDispatch>();
   const reduxSelectedLanguage = useSelector(
     (state: RootState) => state.selectedProject.language
   );
@@ -25,9 +27,12 @@ const CodeEditor = ({ project, editable = true }: CodeAreaProps) => {
     (state: RootState) => state.selectedProject.content
   );
 
-  // Se o projeto não for passado, usa os valores do Redux
-  const [code, setCode] = useState(project?.content || reduxSelectedCode);
+  const code = project?.content || reduxSelectedCode;
   const codeAreaRef = useRef<HTMLDivElement>(null);
+
+  const handleCodeChange = (value: string | undefined) => {
+    dispatch(updateProjectContent({ field: "content", value: value || "" }));
+  };
 
   function handleEditorMount(
     _editor: editor.IStandaloneCodeEditor,
@@ -72,8 +77,8 @@ const CodeEditor = ({ project, editable = true }: CodeAreaProps) => {
             {!editable && <div className={styles.editableBlockOverlay}></div>}
             <Editor
               language={project?.language || reduxSelectedLanguage}
-              defaultValue={code}
-              onChange={(value) => setCode(value || "")}
+              value={code}
+              onChange={handleCodeChange}
               onMount={handleEditorMount}
               options={{
                 fontSize: 17,
