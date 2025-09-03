@@ -80,7 +80,6 @@ export const addCommunityProject = (project: Partial<IProject>): IProject => {
     };
 
     CommunityProjects.unshift(newProject);
-    console.log("Projeto adicionado:", newProject);
     return newProject;
   }
 

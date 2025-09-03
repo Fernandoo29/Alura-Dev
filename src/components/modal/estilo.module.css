@@ -48,3 +48,17 @@
   height: auto;
   min-height: 40px;
 }
+
+/* Tablets e Celular em paisagem */
+@media screen and (max-width: 768px) {
+  .popupCleanVerificationContainer .box {
+    min-width: 60vw;
+  }
+}
+
+/* Celular */
+@media screen and (max-width: 425px) {
+  .popupCleanVerificationContainer .box {
+    min-width: 80vw;
+  }
+}
