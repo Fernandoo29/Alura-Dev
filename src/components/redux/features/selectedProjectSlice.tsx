@@ -30,8 +30,8 @@ export const selectedProjectSlice = createSlice({
   name: "selectedProject",
   initialState,
   reducers: {
-    setSelectedProject: (_state, action: PayloadAction<Partial<IProject>>) => {
-      return { ...initialState, ...action.payload };
+    setSelectedProject: (state, action: PayloadAction<Partial<IProject>>) => {
+      return { ...state, ...action.payload };
     },
     updateProjectContent: <K extends keyof IProject>(
       state: IProject,

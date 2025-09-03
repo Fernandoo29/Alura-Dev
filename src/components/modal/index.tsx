@@ -4,7 +4,7 @@ import styles from "./estilo.module.css";
 import DarkButton from "../button/darkButton";
 import LightButton from "../button/lightButtons";
 
-interface ModalProps {
+export interface ModalProps {
   title: string;
   message: string;
   onConfirm: () => void;

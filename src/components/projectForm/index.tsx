@@ -9,14 +9,19 @@ import DarkButton from "../button/darkButton";
 
 import { AiOutlineClear } from "react-icons/ai";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import {
   updateProjectContent,
   resetProject,
 } from "../redux/features/selectedProjectSlice";
-import Modal, { ModalRef } from "../modal";
+import Modal, { ModalProps, ModalRef } from "../modal";
+
+import { addCommunityProject } from "../../MockData/communityProjects";
+import NotificationPopup, {
+  INotificationPopupProps,
+} from "../notificationPopup";
 
 const selectOpts: { label: string; value: string }[] = [
   { label: "JavaScript", value: "javascript" },
@@ -26,29 +31,87 @@ const selectOpts: { label: string; value: string }[] = [
 
 function ProjectForm() {
   const modalRef = useRef<ModalRef>(null);
-  const dispatch = useDispatch<AppDispatch>();
 
+  const dispatch = useDispatch<AppDispatch>();
   const project = useSelector((state: RootState) => state.selectedProject);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Agora você pode acessar o objeto completo do projeto para salvar
-    console.log("Salvando projeto:", project);
-    // Aqui você despacharia uma action para salvar `project` na sua API ou lista de projetos.
+    mountSaveProjectModal();
+  };
+
+  const saveProject = () => {
+    try {
+      addCommunityProject(project);
+      triggerNotification("Projeto salvo com sucesso!", "success");
+    } catch (error) {
+      console.error("Erro ao salvar projeto:", error);
+      const errorMessage =
+        error instanceof Error ? error.message : "Ocorreu um erro ao salvar.";
+      triggerNotification(errorMessage, "error");
+      return;
+    }
+    dispatch(resetProject());
+  };
+
+  const [modalConfig, setModalConfig] = useState<ModalProps>({
+    title: "",
+    message: "",
+    onConfirm: () => {},
+  });
+
+  const [notification, setNotification] =
+    useState<INotificationPopupProps | null>(null);
+
+  const mountSaveProjectModal = () => {
+    setModalConfig({
+      title: "Salvar Projeto",
+      message: "Deseja salvar o projeto atual?",
+      onConfirm: saveProject,
+    });
+    modalRef.current?.open();
+  };
+
+  const mountClearProjectModal = () => {
+    setModalConfig({
+      title: "Limpar Projeto",
+      message:
+        "Ao confirmar, todo o conteúdo do projeto será apagado. Deseja continuar?",
+      onConfirm: () => dispatch(resetProject()),
+    });
+    modalRef.current?.open();
+  };
+
+  const triggerNotification = (
+    message: string,
+    type: INotificationPopupProps["type"]
+  ) => {
+    setNotification({ message, type });
+  };
+  const handleCloseNotification = () => {
+    setNotification(null);
   };
 
   return (
     <>
+      {notification && (
+        <NotificationPopup
+          message={notification.message}
+          type={notification.type}
+          onClose={handleCloseNotification}
+        />
+      )}
       <Modal
         ref={modalRef}
-        title="Limpar Projeto"
-        message="Ao confirmar, todo o conteúdo do projeto será apagado. Deseja continuar?"
-        onConfirm={() => dispatch(resetProject())}
+        title={modalConfig.title}
+        message={modalConfig.message}
+        onConfirm={modalConfig.onConfirm}
       />
       <form className={styles.formContainer} onSubmit={handleSubmit}>
         <div className={styles.formArea}>
           <h2 className={styles.title}>SEU PROJETO</h2>
           <TextInput
+            required
             placeholder="Nome do seu projeto"
             value={project.title}
             onChange={(e) =>
@@ -58,6 +121,7 @@ function ProjectForm() {
             }
           />
           <TextArea
+            required
             placeholder="Descrição do seu projeto"
             value={project.description}
             onChange={(e) =>
@@ -106,7 +170,7 @@ function ProjectForm() {
             type="button"
             className={styles.cleanBtn}
             style={{ flex: "20%" }}
-            onClick={() => modalRef.current?.open()}
+            onClick={mountClearProjectModal}
           >
             <AiOutlineClear />
           </DarkButton>
