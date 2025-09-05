@@ -96,6 +96,10 @@ function Header() {
               />
             </ul>
           </nav>
+          <hr />
+          <div className={styles.floatingMenuPerfil}>
+            <Perfil />
+          </div>
         </div>
       )}
     </header>

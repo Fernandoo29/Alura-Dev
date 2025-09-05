@@ -85,6 +85,18 @@
   flex: 15;
 }
 
+.floatingMenuPerfil {
+  float: left;
+  margin-left: -4px;
+}
+
+.menuFlutuante hr {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 20px 0 10px 0;
+}
+
 /* Tablets e Celular em paisagem */
 @media screen and (max-width: 768px) {
   .sides {
